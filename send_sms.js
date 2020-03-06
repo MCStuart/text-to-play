@@ -7,7 +7,7 @@ const client = require('twilio')(accountSid, authToken);
 client.messages
   .create({
      body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
-     from: '+15017122661',
-     to: '+15558675310'
+     from: process.env.TWILIO_TEST_NUMBER,
+     to: process.env.TWILIO_AUTHENTICATED_NUMBER
    })
   .then(message => console.log(message.sid));
